@@ -1,0 +1,174 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  padding-bottom: 40rpx;
+}
+
+.desc {
+  padding: $spacing-lg $page-padding;
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  line-height: 1.6;
+}
+
+.formCard {
+  background-color: $color-bg-card;
+  margin: 0 $spacing-lg $spacing-lg;
+  padding: 28rpx;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.formItem {
+  margin-bottom: 28rpx;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.formLabel {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-bottom: 12rpx;
+}
+
+.typeOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.typeOption {
+  padding: 14rpx 28rpx;
+  background-color: $color-bg-gray;
+  border-radius: $radius-button;
+  border: 2rpx solid transparent;
+  transition: all $transition-base;
+
+  &.active {
+    background-color: $color-primary-bg;
+    border-color: $color-primary;
+  }
+}
+
+.typeOptionText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+
+  .active & {
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+.textarea {
+  width: 100%;
+  min-height: 200rpx;
+  padding: 20rpx;
+  background-color: $color-bg-gray;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.wordCount {
+  text-align: right;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 12rpx;
+}
+
+.contactInput {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 20rpx;
+  background-color: $color-bg-gray;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  box-sizing: border-box;
+}
+
+.photoUpload {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.photoItem {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: $radius-md;
+  overflow: hidden;
+  position: relative;
+}
+
+.photoImg {
+  width: 100%;
+  height: 100%;
+}
+
+.photoDelete {
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoDeleteIcon {
+  font-size: 24rpx;
+  color: $color-text-white;
+  line-height: 1;
+}
+
+.photoAdd {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: $radius-md;
+  border: 2rpx dashed $color-border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-gray;
+}
+
+.photoAddIcon {
+  font-size: 48rpx;
+  color: $color-text-tertiary;
+  margin-bottom: 8rpx;
+}
+
+.photoAddText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.submitBtn {
+  margin: $spacing-lg;
+  height: 96rpx;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-card;
+}
+
+.submitBtnText {
+  font-size: 32rpx;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}

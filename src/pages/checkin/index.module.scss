@@ -1,0 +1,186 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  padding-bottom: 40rpx;
+}
+
+.treasureInfo {
+  background-color: $color-bg-card;
+  margin: $spacing-lg;
+  padding: 24rpx;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  box-shadow: $shadow-card;
+}
+
+.treasureImage {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: $radius-md;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.treasureText {
+  flex: 1;
+}
+
+.treasureName {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+}
+
+.treasureAddress {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  @include text-ellipsis;
+}
+
+.section {
+  background-color: $color-bg-card;
+  margin: 0 $spacing-lg $spacing-lg;
+  padding: 28rpx;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 20rpx;
+}
+
+.photoUpload {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.photoItem {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: $radius-md;
+  overflow: hidden;
+  position: relative;
+}
+
+.photoImg {
+  width: 100%;
+  height: 100%;
+}
+
+.photoDelete {
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoDeleteIcon {
+  font-size: 24rpx;
+  color: $color-text-white;
+  line-height: 1;
+}
+
+.photoAdd {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: $radius-md;
+  border: 2rpx dashed $color-border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-gray;
+}
+
+.photoAddIcon {
+  font-size: 48rpx;
+  color: $color-text-tertiary;
+  margin-bottom: 8rpx;
+}
+
+.photoAddText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.ratingSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.star {
+  font-size: 64rpx;
+  color: $color-text-disabled;
+  transition: all $transition-base;
+
+  &.active {
+    color: #FFB800;
+  }
+}
+
+.ratingText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.commentInput {
+  width: 100%;
+  min-height: 200rpx;
+  padding: 20rpx;
+  background-color: $color-bg-gray;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.commentCount {
+  text-align: right;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 12rpx;
+}
+
+.submitBtn {
+  margin: 0 $spacing-lg;
+  height: 96rpx;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-secondary 0%, $color-secondary-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-card;
+}
+
+.submitBtnText {
+  font-size: 32rpx;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}
+
+.submitBtnDisabled {
+  opacity: 0.6;
+}

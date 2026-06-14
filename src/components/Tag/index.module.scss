@@ -1,0 +1,80 @@
+@use '@/styles/variables.scss' as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+
+  &.small {
+    height: 40rpx;
+    padding: 0 16rpx;
+  }
+
+  &.medium {
+    height: 48rpx;
+    padding: 0 20rpx;
+  }
+}
+
+.tagText {
+  font-size: $font-size-xs;
+  line-height: 1;
+}
+
+.primary {
+  background-color: $color-primary-bg;
+  .tagText {
+    color: $color-primary;
+  }
+}
+
+.secondary {
+  background-color: $color-secondary-bg;
+  .tagText {
+    color: $color-secondary;
+  }
+}
+
+.rain {
+  background-color: rgba(64, 128, 255, 0.1);
+  .tagText {
+    color: $color-info;
+  }
+}
+
+.kid {
+  background-color: rgba(247, 186, 30, 0.12);
+  .tagText {
+    color: $color-warning;
+  }
+}
+
+.free {
+  background-color: rgba(54, 179, 126, 0.1);
+  .tagText {
+    color: $color-tag-free;
+  }
+}
+
+.food {
+  background-color: rgba(255, 122, 69, 0.1);
+  .tagText {
+    color: $color-tag-food;
+  }
+}
+
+.view {
+  background-color: rgba(155, 89, 182, 0.1);
+  .tagText {
+    color: $color-tag-view;
+  }
+}
+
+.default {
+  background-color: $color-bg-gray;
+  .tagText {
+    color: $color-text-secondary;
+  }
+}

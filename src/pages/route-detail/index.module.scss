@@ -1,0 +1,290 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  padding-bottom: 160rpx;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 88rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  background: transparent;
+}
+
+.backBtn {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-card;
+}
+
+.backIcon {
+  font-size: 28rpx;
+  color: $color-text-primary;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 400rpx;
+  margin-top: -88rpx;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+}
+
+.bannerOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160rpx;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+}
+
+.content {
+  position: relative;
+  margin-top: -40rpx;
+  background-color: $color-bg-page;
+  border-radius: 32rpx 32rpx 0 0;
+  padding: 32rpx $page-padding;
+}
+
+.titleSection {
+  margin-bottom: 24rpx;
+}
+
+.title {
+  font-size: 38rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: 12rpx;
+}
+
+.desc {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  line-height: 1.6;
+}
+
+.statsCard {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+  box-shadow: $shadow-card;
+  display: flex;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 2rpx solid $color-divider;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.statNum {
+  font-size: 36rpx;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: 8rpx;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+.sectionTitle {
+  font-size: 32rpx;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.sectionIcon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+
+.timeline {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: 28rpx;
+  box-shadow: $shadow-card;
+}
+
+.timelineItem {
+  display: flex;
+  position: relative;
+  padding-bottom: 32rpx;
+
+  &:last-child {
+    padding-bottom: 0;
+
+    .timelineLine {
+      display: none;
+    }
+  }
+}
+
+.timelineDot {
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  background-color: $color-primary;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timelineDotIcon {
+  font-size: 18rpx;
+  color: $color-text-white;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 15rpx;
+  top: 40rpx;
+  bottom: 0;
+  width: 2rpx;
+  background-color: $color-border;
+  z-index: 1;
+}
+
+.timelineContent {
+  flex: 1;
+}
+
+.treasureName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: 8rpx;
+}
+
+.treasureInfo {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-bottom: 8rpx;
+}
+
+.treasureStay {
+  font-size: $font-size-xs;
+  color: $color-secondary;
+  background-color: $color-secondary-bg;
+  padding: 4rpx 12rpx;
+  border-radius: $radius-sm;
+  display: inline-block;
+}
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $color-bg-card;
+  padding: 20rpx $page-padding calc(20rpx + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+  z-index: 50;
+}
+
+.favoriteBtn {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: $radius-lg;
+  background-color: $color-bg-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &.favorited {
+    background-color: $color-primary-bg;
+    .favoriteIcon {
+      color: $color-primary;
+    }
+  }
+}
+
+.favoriteIcon {
+  font-size: 36rpx;
+  color: $color-text-tertiary;
+  margin-bottom: 4rpx;
+}
+
+.favoriteText {
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+}
+
+.startBtn {
+  flex: 1;
+  height: 96rpx;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.startBtnText {
+  font-size: 32rpx;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}
+
+.shareBtn {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: $radius-lg;
+  background-color: $color-primary-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shareIcon {
+  font-size: 32rpx;
+  margin-bottom: 4rpx;
+}
+
+.shareText {
+  font-size: 20rpx;
+  color: $color-primary;
+}

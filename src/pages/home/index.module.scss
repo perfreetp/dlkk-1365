@@ -1,0 +1,222 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  padding-bottom: 40rpx;
+}
+
+.header {
+  position: relative;
+  padding: 100rpx $page-padding 40rpx;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  border-radius: 0 0 40rpx 40rpx;
+}
+
+.greeting {
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+  margin-bottom: 24rpx;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: $radius-button;
+  padding: 0 28rpx;
+  height: 80rpx;
+}
+
+.searchIcon {
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.searchText {
+  font-size: 28rpx;
+  color: $color-text-tertiary;
+  flex: 1;
+}
+
+.section {
+  padding: 0 $page-padding;
+  margin-top: 32rpx;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.sectionTitle {
+  font-size: 34rpx;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.moreBtn {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.categoryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.categoryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.categoryIconWrap {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: $color-bg-card;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+  box-shadow: $shadow-card;
+}
+
+.categoryIcon {
+  font-size: 44rpx;
+}
+
+.categoryName {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.newTreasures {
+  display: flex;
+  gap: 20rpx;
+  overflow-x: auto;
+  padding-bottom: 8rpx;
+  @include scroll-x-container;
+}
+
+.newCard {
+  @include scroll-x-item(280rpx);
+  flex-shrink: 0;
+}
+
+.filterBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-bg-card;
+  border-radius: $radius-md;
+  padding: 16rpx 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: $shadow-card;
+}
+
+.filterBtnText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-right: 8rpx;
+}
+
+.filterBtnIcon {
+  font-size: 24rpx;
+  color: $color-text-tertiary;
+}
+
+.treasureList {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.filterPanel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+}
+
+.filterContent {
+  width: 100%;
+  background-color: $color-bg-card;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 32rpx $page-padding 48rpx;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.filterHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.filterTitle {
+  font-size: 34rpx;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.filterReset {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.filterFooter {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 32rpx;
+}
+
+.cancelBtn {
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background-color: $color-bg-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancelBtnText {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+}
+
+.confirmBtn {
+  flex: 2;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmBtnText {
+  font-size: $font-size-md;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}
