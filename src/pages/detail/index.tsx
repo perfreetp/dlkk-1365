@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, Image, ScrollView } from '@tarojs/components';
-import Taro, { useRouter, useDidShow } from '@tarojs/taro';
+import Taro, { useRouter, useDidShow, useShareAppMessage, useShareTimeline } from '@tarojs/taro';
 import classnames from 'classnames';
 import styles from './index.module.scss';
 import Tag from '@/components/Tag';
 import { useAppStore } from '@/store/useAppStore';
-import { getCategoryLabel, getCategoryColor, formatDistance, formatBudget } from '@/utils';
+import { getCategoryLabel, formatDistance, buildTreasureShareContent, copyToClipboard } from '@/utils';
 
 const DetailPage: React.FC = () => {
   const router = useRouter();
@@ -15,6 +15,7 @@ const DetailPage: React.FC = () => {
   const treasure = getTreasureById(id);
 
   const [isFavorited, setIsFavorited] = useState(false);
+  const [showShare, setShowShare] = useState(false);
 
   useEffect(() => {
     setIsFavorited(favoriteTreasures.includes(id));
@@ -22,6 +23,25 @@ const DetailPage: React.FC = () => {
 
   useDidShow(() => {
     console.log('[DetailPage] page showed, id:', id);
+  });
+
+  const shareContent = treasure ? buildTreasureShareContent(treasure) : null;
+
+  useShareAppMessage(() => {
+    if (!shareContent) return { title: '城市散步宝藏' };
+    return {
+      title: shareContent.title,
+      path: shareContent.path,
+      imageUrl: shareContent.imageUrl
+    };
+  });
+
+  useShareTimeline(() => {
+    if (!shareContent) return { title: '城市散步宝藏' };
+    return {
+      title: shareContent.title,
+      imageUrl: shareContent.imageUrl
+    };
   });
 
   const handleBack = useCallback(() => {
@@ -43,10 +63,30 @@ const DetailPage: React.FC = () => {
   }, [id]);
 
   const handleShare = useCallback(() => {
+    setShowShare(true);
+  }, []);
+
+  const handleCloseShare = useCallback(() => {
+    setShowShare(false);
+  }, []);
+
+  const handleCopyLink = useCallback(async () => {
+    if (!shareContent) return;
+    const link = `${shareContent.title}\n${shareContent.desc || ''}\n打开小程序查看详情`;
+    const ok = await copyToClipboard(link);
     Taro.showToast({
-      title: '分享功能开发中',
+      title: ok ? '已复制分享内容' : '复制失败',
       icon: 'none'
     });
+    setShowShare(false);
+  }, [shareContent]);
+
+  const handleSaveImage = useCallback(() => {
+    Taro.showToast({
+      title: '海报生成中...',
+      icon: 'none'
+    });
+    setShowShare(false);
   }, []);
 
   if (!treasure) {
@@ -210,6 +250,41 @@ const DetailPage: React.FC = () => {
           <Text className={styles.checkinBtnText}>立即打卡</Text>
         </View>
       </View>
+
+      {showShare && shareContent && (
+        <View className={styles.shareMask} onClick={handleCloseShare}>
+          <View className={styles.sharePanel} onClick={e => e.stopPropagation()}>
+            <View className={styles.shareHeader}>
+              <Text className={styles.shareTitle}>分享给朋友</Text>
+              <Text className={styles.shareClose} onClick={handleCloseShare}>×</Text>
+            </View>
+            <View className={styles.sharePreview}>
+              <View className={styles.sharePreviewTop}>
+                <Image className={styles.sharePreviewImg} src={shareContent.imageUrl} mode="aspectFill" />
+                <View className={styles.sharePreviewInfo}>
+                  <Text className={styles.sharePreviewName}>{shareContent.title}</Text>
+                  <Text className={styles.sharePreviewDesc}>{shareContent.desc}</Text>
+                </View>
+              </View>
+              <Text className={styles.sharePreviewTip}>朋友点击后可直接打开小程序查看详情</Text>
+            </View>
+            <View className={styles.shareActions}>
+              <View className={styles.shareActionItem} onClick={handleCopyLink}>
+                <Text className={styles.shareActionIcon}>📋</Text>
+                <Text className={styles.shareActionText}>复制内容</Text>
+              </View>
+              <View className={styles.shareActionItem} onClick={handleSaveImage}>
+                <Text className={styles.shareActionIcon}>🖼️</Text>
+                <Text className={styles.shareActionText}>保存海报</Text>
+              </View>
+              <View className={styles.shareActionItem} onClick={handleCloseShare}>
+                <Text className={styles.shareActionIcon}>💬</Text>
+                <Text className={styles.shareActionText}>小程序分享</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      )}
     </View>
   );
 };

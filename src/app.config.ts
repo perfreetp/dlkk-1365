@@ -9,7 +9,9 @@ export default defineAppConfig({
     'pages/route-detail/index',
     'pages/checkin/index',
     'pages/search/index',
-    'pages/feedback/index'
+    'pages/feedback/index',
+    'pages/create-route/index',
+    'pages/checkin-list/index'
   ],
   window: {
     backgroundTextStyle: 'light',

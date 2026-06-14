@@ -1,0 +1,321 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background-color: $color-bg-page;
+  padding-bottom: 200rpx;
+}
+
+.header {
+  padding: $spacing-lg $page-padding;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-white;
+}
+
+.title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  display: block;
+}
+
+.desc {
+  font-size: $font-size-sm;
+  opacity: 0.9;
+  margin-top: $spacing-xs;
+  display: block;
+}
+
+.section {
+  margin: $spacing-lg $page-padding 0;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  display: block;
+}
+
+.nameInput {
+  width: 100%;
+  height: 80rpx;
+  background-color: $color-bg-card;
+  border-radius: $radius-md;
+  padding: 0 $spacing-md;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  box-sizing: border-box;
+}
+
+.selectedList {
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-sm;
+  box-shadow: $shadow-card;
+}
+
+.selectedItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md $spacing-sm;
+  background-color: $color-bg-gray;
+  border-radius: $radius-md;
+  margin-bottom: $spacing-sm;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.orderNum {
+  width: 48rpx;
+  height: 48rpx;
+  background-color: $color-primary;
+  color: $color-text-white;
+  border-radius: $radius-round;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  flex-shrink: 0;
+}
+
+.selectedImage {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: $radius-sm;
+  margin: 0 $spacing-md;
+  flex-shrink: 0;
+}
+
+.selectedInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.selectedName {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+  display: block;
+  @include text-ellipsis;
+}
+
+.selectedMeta {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 4rpx;
+  display: block;
+}
+
+.itemActions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.actionBtn {
+  width: 56rpx;
+  height: 56rpx;
+  background-color: $color-bg-card;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+
+  &.delete {
+    color: $color-error;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.statsCard {
+  background-color: $color-primary-bg;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  justify-content: space-around;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNum {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  display: block;
+}
+
+.statLabel {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-top: 4rpx;
+  display: block;
+}
+
+.treasureList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.treasureItem {
+  display: flex;
+  align-items: center;
+  background-color: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  box-shadow: $shadow-card;
+}
+
+.checkbox {
+  width: 44rpx;
+  height: 44rpx;
+  border: 3rpx solid $color-border;
+  border-radius: $radius-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: $spacing-md;
+
+  &.checked {
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+}
+
+.checkIcon {
+  color: $color-text-white;
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+}
+
+.treasureImage {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: $radius-md;
+  flex-shrink: 0;
+  margin-right: $spacing-md;
+}
+
+.treasureInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.treasureName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: block;
+  @include text-ellipsis;
+}
+
+.treasureAddr {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: 6rpx;
+  display: block;
+  @include text-ellipsis;
+}
+
+.treasureMeta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: 8rpx;
+  flex-wrap: wrap;
+}
+
+.metaText {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.bottomBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color-bg-card;
+  padding: $spacing-md $page-padding;
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.summaryText {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.summaryHighlight {
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.cancelBtn {
+  padding: 0 $spacing-lg;
+  height: 80rpx;
+  border-radius: $radius-button;
+  background-color: $color-bg-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cancelBtnText {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+}
+
+.saveBtn {
+  padding: 0 $spacing-xl;
+  height: 80rpx;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+}
+
+.saveBtnText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-white;
+}
+
+.emptyHint {
+  text-align: center;
+  padding: $spacing-xl 0;
+}
+
+.emptyIcon {
+  font-size: 80rpx;
+  display: block;
+}
+
+.emptyText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  margin-top: $spacing-sm;
+  display: block;
+}

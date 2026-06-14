@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDidShow, useDidHide } from '@tarojs/taro';
-// 全局样式
+import { useAppStore } from '@/store/useAppStore';
 import './app.scss';
 
 function App(props) {
-  // 可以使用所有的 React Hooks
-  useEffect(() => {});
+  const hydrateFromStorage = useAppStore(state => state.hydrateFromStorage);
 
-  // 对应 onShow
-  useDidShow(() => {});
+  useEffect(() => {
+    hydrateFromStorage();
+  }, [hydrateFromStorage]);
 
-  // 对应 onHide
+  useDidShow(() => {
+    hydrateFromStorage();
+  });
+
   useDidHide(() => {});
 
   return props.children;

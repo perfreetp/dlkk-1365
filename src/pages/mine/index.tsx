@@ -12,9 +12,8 @@ const MinePage: React.FC = () => {
   });
 
   const handleCheckinList = useCallback(() => {
-    Taro.showToast({
-      title: '打卡记录功能开发中',
-      icon: 'none'
+    Taro.navigateTo({
+      url: '/pages/checkin-list/index'
     });
   }, []);
 

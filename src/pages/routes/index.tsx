@@ -9,14 +9,14 @@ import { useAppStore } from '@/store/useAppStore';
 const RoutesPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'recommend' | 'mine'>('recommend');
 
-  const { routes, favoriteRoutes, toggleFavoriteRoute } = useAppStore();
+  const { routes, customRoutes, favoriteRoutes, toggleFavoriteRoute } = useAppStore();
 
   useDidShow(() => {
     console.log('[RoutesPage] page showed');
   });
 
   const recommendRoutes = routes.filter(r => r.isRecommended);
-  const myRoutes = routes.filter(r => favoriteRoutes.includes(r.id));
+  const myRoutes = [...customRoutes, ...routes.filter(r => favoriteRoutes.includes(r.id))];
 
   const handlePullDownRefresh = useCallback(() => {
     console.log('[RoutesPage] pull down refresh');
@@ -26,9 +26,8 @@ const RoutesPage: React.FC = () => {
   }, []);
 
   const handleCreateRoute = useCallback(() => {
-    Taro.showToast({
-      title: '功能开发中',
-      icon: 'none'
+    Taro.navigateTo({
+      url: '/pages/create-route/index'
     });
   }, []);
 
@@ -109,8 +108,8 @@ const RoutesPage: React.FC = () => {
           ) : (
             <View className={styles.emptyState}>
               <Text className={styles.emptyIcon}>📋</Text>
-              <Text className={styles.emptyText}>还没有收藏路线</Text>
-              <Text className={styles.emptyDesc}>去推荐路线里逛逛吧</Text>
+              <Text className={styles.emptyText}>还没有路线</Text>
+              <Text className={styles.emptyDesc}>点击右上角创建属于你的专属路线吧</Text>
             </View>
           )}
         </View>

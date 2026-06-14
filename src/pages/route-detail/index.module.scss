@@ -288,3 +288,121 @@
   font-size: 20rpx;
   color: $color-primary;
 }
+
+.shareMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sharePanel {
+  width: 100%;
+  background-color: $color-bg-card;
+  border-radius: 32rpx 32rpx 0 0;
+  padding: 32rpx $page-padding calc(32rpx + env(safe-area-inset-bottom));
+}
+
+.shareHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32rpx;
+}
+
+.shareTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.shareClose {
+  font-size: 40rpx;
+  color: $color-text-tertiary;
+  padding: 8rpx;
+}
+
+.sharePreview {
+  background-color: $color-bg-page;
+  border-radius: $radius-lg;
+  padding: 24rpx;
+  margin-bottom: 32rpx;
+}
+
+.sharePreviewTop {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.sharePreviewImg {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: $radius-md;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.sharePreviewInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.sharePreviewName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: block;
+  @include text-ellipsis;
+}
+
+.sharePreviewDesc {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-top: 8rpx;
+  display: block;
+  @include text-ellipsis-multi(2);
+}
+
+.sharePreviewTip {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  background-color: $color-bg-gray;
+  padding: 12rpx 16rpx;
+  border-radius: $radius-sm;
+  display: block;
+}
+
+.shareActions {
+  display: flex;
+  gap: 24rpx;
+}
+
+.shareActionItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx 0;
+  background-color: $color-bg-page;
+  border-radius: $radius-lg;
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.shareActionIcon {
+  font-size: 48rpx;
+  margin-bottom: 12rpx;
+}
+
+.shareActionText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}

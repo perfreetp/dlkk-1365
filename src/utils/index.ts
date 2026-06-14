@@ -61,3 +61,56 @@ export const getWalkDurationLabel = (duration: string): string => {
 export const generateId = (): string => {
   return Math.random().toString(36).substring(2, 15);
 };
+
+export interface ShareContent {
+  title: string;
+  path: string;
+  imageUrl: string;
+  desc?: string;
+}
+
+export const buildTreasureShareContent = (treasure: {
+  id: string;
+  name: string;
+  coverImage: string;
+  address: string;
+  rating: number;
+  budgetDesc: string;
+}): ShareContent => {
+  return {
+    title: `发现宝藏：${treasure.name}`,
+    path: `/pages/detail/index?id=${treasure.id}`,
+    imageUrl: treasure.coverImage,
+    desc: `📍 ${treasure.address} ⭐ ${treasure.rating}分 💰 ${treasure.budgetDesc}`
+  };
+};
+
+export const buildRouteShareContent = (route: {
+  id: string;
+  name: string;
+  coverImage: string;
+  description: string;
+  totalDistance: number;
+  totalTime: number;
+  treasureIds: string[];
+}): ShareContent => {
+  return {
+    title: `周末路线：${route.name}`,
+    path: `/pages/route-detail/index?id=${route.id}`,
+    imageUrl: route.coverImage,
+    desc: `${route.treasureIds.length}个地点 · ${formatDistance(route.totalDistance)} · 步行约${formatTime(route.totalTime)}`
+  };
+};
+
+export const copyToClipboard = async (text: string): Promise<boolean> => {
+  try {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+    return false;
+  } catch (e) {
+    console.error('[Utils] copyToClipboard error:', e);
+    return false;
+  }
+};
